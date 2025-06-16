@@ -1,4 +1,6 @@
 .navbar-Container{
 height: 56px;
 background-color: var(--flipkart-lightBlue);
+color: white; 
+
 }
