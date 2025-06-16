@@ -1,6 +1,7 @@
-.navbar-Container{
-height: 56px;
-background-color: var(--flipkart-lightBlue);
-color: white; 
-
+.navbar-Container {
+  height: 56px;
+  background-color: var(--flipkart-lightBlue);
+  color: white;
+  position: fixed;
+  z-index: 2;
 }
