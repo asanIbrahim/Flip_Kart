@@ -19,3 +19,11 @@
 .navbar-logo{
   width: 80px;
 }
+.navbar-search{
+  display: flex;
+  justify-content: space-between;
+ max-width: 444px;
+ width: calc(100% -540px);
+ background: white;
+ border-radius: 3px;
+}
