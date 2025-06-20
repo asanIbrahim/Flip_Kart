@@ -20,12 +20,14 @@ const Navbar = () => {
           <div className="navbar-search">
             <input
               type="text"
-              placeholder="Search for Product , brands and more"
+              placeholder="Search for Products,brands and more"
               className="navbar-input"
+              name="navInput"
             />
             <button className="searchButton">
               <IoSearch />
             </button>
+             </div>
             <button className="navbar-login">Login</button>
             <div className="navbar-bcs">
               <h3>Become a seller</h3>
@@ -46,7 +48,7 @@ const Navbar = () => {
                 Cart
               </Link>
             </div>
-          </div>
+         
         </div>
       </div>
     </>

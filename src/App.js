@@ -4,7 +4,7 @@ import Products from "./Pages/Products/Products";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import Cart from "./Pages/Cart/Cart";
 import {BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
+import Navbar from "./Components/NavBar/Navbar";
 
 function App() {
   return (
