@@ -20,10 +20,26 @@
   width: 80px;
 }
 .navbar-search{
-  display: flex;
-  justify-content: space-between;
+ display: flex;
+ justify-content: space-between;
  max-width: 444px;
  width: calc(100% -540px);
  background: white;
  border-radius: 3px;
+}
+.searchButton{
+  height:36px;
+  width:44px;
+  border:none;
+  background-color: white;
+  font-size: 20px;
+  padding: 4px 12px 0 8px;
+  color: var(--flipkart-lightBlue);
+  cursor: pointer;
+}
+.navbar-input{
+  width:100%;
+  border: none;
+  padding: 10px;
+  outline: none;
 }
