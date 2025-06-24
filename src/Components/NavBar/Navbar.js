@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import './Navbar.css'
+import LoginModal from "../LoginModal/LoginModal";
 
 const Navbar = () => {
+  const [isOpen,setIsOpen] = useState(false)
+
   return (
     <>
       <div className="navbar-Container">
@@ -28,7 +31,7 @@ const Navbar = () => {
               <IoSearch />
             </button>
              </div>
-            <button className="navbar-login">Login</button>
+            <button className="navbar-login" onClick={()=>setIsOpen(true) }>Login</button>
             <div className="navbar-bcs">
               <h3>Become a seller</h3>
             </div>
@@ -48,8 +51,8 @@ const Navbar = () => {
                 Cart
               </Link>
             </div>
-         
-        </div>
+         </div>
+         <LoginModal isOpen={isOpen} setIsOpen={setIsOpen      }/>
       </div>
     </>
   );
