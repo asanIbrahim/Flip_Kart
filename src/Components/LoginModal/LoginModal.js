@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import "./LoginModal.css";
 import { RxCross2 } from "react-icons/rx";
 import supabase from "../../supabase";
+import { setUser } from "../../slices/userSlice";
+import { useDispatch } from "react-redux";
 
 const LoginModal = ({ isOpen, setIsOpen }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginType, setLoginType] = useState(true);
-
+  const dispatch = useDispatch()
   const signUp = async () => {
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -20,16 +22,15 @@ const LoginModal = ({ isOpen, setIsOpen }) => {
   };
 
   const login = async () => {
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const {data  ,error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
     if (error) {
       return  alert(error.message);
     }
-    console.log(data, error);
+    dispatch(setUser(data.user))
   };
-
   return isOpen ? (
     <div className="overlay">
       <div className="LoginModal">
