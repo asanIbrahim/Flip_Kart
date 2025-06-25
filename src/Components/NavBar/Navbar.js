@@ -1,13 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
-import './Navbar.css'
+import "./Navbar.css";
 import LoginModal from "../LoginModal/LoginModal";
+import { useDispatch, useSelector } from "react-redux";
+import supabase from "../../supabase";
+import { removeUser } from "../../slices/userSlice";
 
 const Navbar = () => {
-  const [isOpen,setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const user = useSelector((state) => state.userData.user);
+  const dispatch = useDispatch();
+  console.log(user);
+
+  const logOut = async () => {
+    const { error } = await supabase.auth.signOut();
+
+    if (!error) {
+      dispatch(removeUser());
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      setIsOpen(false);
+    }
+  }, [user]);
 
   return (
     <>
@@ -30,29 +50,35 @@ const Navbar = () => {
             <button className="searchButton">
               <IoSearch />
             </button>
-             </div>
-            <button className="navbar-login" onClick={()=>setIsOpen(true) }>Login</button>
-            <div className="navbar-bcs">
-              <h3>Become a seller</h3>
+          </div>
+          {user ? (
+            <button onClick={ logOut}>@{user?.email.slice(0, 8)}</button>
+          ) : (
+            <button className="navbar-login" onClick={() => setIsOpen(true)}>
+              Login
+            </button>
+          )}
+          <div className="navbar-bcs">
+            <h3>Become a seller</h3>
+          </div>
+          <div className="navbar-more">
+            <h3>
+              More
+              <i className="moreDown">
+                <MdKeyboardDoubleArrowDown />
+              </i>
+            </h3>
+          </div>
+          <div className="navbar-cart">
+            <div className="cart-icon">
+              <FaShoppingCart />
             </div>
-            <div className="navbar-more">
-              <h3>
-                More
-                <i className="moreDown">
-                  <MdKeyboardDoubleArrowDown />
-                </i>
-              </h3>
-            </div>
-            <div className="navbar-cart">
-              <div className="cart-icon">
-                <FaShoppingCart />
-              </div>
-              <Link to={"/cart"} className="cart">
-                Cart
-              </Link>
-            </div>
-         </div>
-         <LoginModal isOpen={isOpen} setIsOpen={setIsOpen      }/>
+            <Link to={"/cart"} className="cart">
+              Cart
+            </Link>
+          </div>
+        </div>
+        <LoginModal isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </>
   );
