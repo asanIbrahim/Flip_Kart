@@ -1,6 +1,6 @@
 import React from "react";
 import "./Products.css";
-import { ProductsData } from "../../ProductsData";
+import ProductsData from "../../ProductsData";
 
 const Products = () => {
   return (
@@ -24,7 +24,19 @@ const Products = () => {
         </div>
       </div>
       <div>
-        <div className="Products-items">Showing 1-{ProductsData.length}</div>
+        <div className="Products-items">
+          <p className="totalresults">Showing 1-{ProductsData.length} result</p>
+          <div className="sortby">
+            <p>Sort By</p>
+            <ul className="sortitems">
+              <li className="sortitem">Relevance</li>
+              <li className="sortitem">Popularity</li>
+              <li className="sortitem">Price- Low to High</li>
+              <li className="sortitem">Price - High to Low</li>
+              <li className="sortitem"> Newest First</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
