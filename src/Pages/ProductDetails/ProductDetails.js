@@ -4,7 +4,7 @@ import "./ProductDetails.css";
 const ProductDetails = () => {
   return (
     <>
-    </>
+     </>
   );
 };
 
