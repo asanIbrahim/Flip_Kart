@@ -1,6 +1,8 @@
 import React from "react";
 import "./Products.css";
 import ProductsData from "../../ProductsData";
+import { Link } from "react-router-dom";
+import ProductDetailCard from "../../Components/ProductDetailCard/ProductDetailCard"
 
 const Products = () => {
   return (
@@ -23,20 +25,26 @@ const Products = () => {
           <p>Brand</p>
         </div>
       </div>
-      <div>
-        <div className="Products-items">
-          <p className="totalresults">Showing 1-{ProductsData.length} result</p>
-          <div className="sortby">
-            <p>Sort By</p>
-            <ul className="sortitems">
-              <li className="sortitem">Relevance</li>
-              <li className="sortitem">Popularity</li>
-              <li className="sortitem">Price- Low to High</li>
-              <li className="sortitem">Price - High to Low</li>
-              <li className="sortitem"> Newest First</li>
-            </ul>
-          </div>
+
+      <div className="Products-items">
+        <p className="totalresults">Showing 1-{ProductsData.length} result</p>
+        <div className="sortby">
+          <p>Sort By</p>
+          <ul className="sortitems">
+            <li className="sortitem">Relevance</li>
+            <li className="sortitem">Popularity</li>
+            <li className="sortitem">Price- Low to High</li>
+            <li className="sortitem">Price - High to Low</li>
+            <li className="sortitem"> Newest First</li>
+          </ul>
         </div>
+      </div>
+      <div>
+          {ProductsData.map((Data,index)=>(
+            <Link key={index} to ={`/productdetails/${Data.id}`}>
+              <ProductDetailCard Data={Data}/>
+            </Link>
+          ))}
       </div>
     </div>
   );
