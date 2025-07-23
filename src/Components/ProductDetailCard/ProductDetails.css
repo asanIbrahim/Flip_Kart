@@ -11,7 +11,7 @@
 }
 .ProductDetailCard_Img > img {
   width: 203px;
-  height: 101%;
+  height: 100%;
   object-fit: contain;
 }
 .ProductDetailCard-details {
