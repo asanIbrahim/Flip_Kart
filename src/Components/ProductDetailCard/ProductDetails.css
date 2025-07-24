@@ -24,7 +24,7 @@
 }
 .ratingsAndreviews {
   display: flex;
-  padding: 5px 0;
+  padding: 8px 0;
 }
 .stars {
   background: #388e3c;
