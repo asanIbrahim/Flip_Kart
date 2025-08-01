@@ -14,7 +14,7 @@ height: 369px;
 .Categorycarouse-tile {
   font-size: 36px;
   font-weight: 300;
-  padding-bottom: 27px;
+  padding-bottom: 28px;
   text-align: center;
 }
 .Categorycarouse-btn {
@@ -23,7 +23,7 @@ height: 369px;
   outline: none;
   padding: 9px 20px;
   color: white;
-  font-weight: 301;
+  font-weight: 302;
   border-radius: 2px;
   border: 2px solid rgb(57, 57, 247);
   text-transform: uppercase;
