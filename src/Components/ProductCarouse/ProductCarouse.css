@@ -1,6 +1,6 @@
 .Categorycarouse{
 display: flex;
-width: 99%;
+width: 100%;
 margin-top: 10px;
 box-shadow: 3px 2px 10px rgb(201,201,201);
 height: 369px;
@@ -14,7 +14,7 @@ height: 369px;
 .Categorycarouse-tile {
   font-size: 36px;
   font-weight: 300;
-  padding-bottom: 28px;
+  padding-bottom: 27px;
   text-align: center;
 }
 .Categorycarouse-btn {
@@ -23,7 +23,7 @@ height: 369px;
   outline: none;
   padding: 9px 20px;
   color: white;
-  font-weight: 302;
+  font-weight: 301;
   border-radius: 2px;
   border: 2px solid rgb(57, 57, 247);
   text-transform: uppercase;
